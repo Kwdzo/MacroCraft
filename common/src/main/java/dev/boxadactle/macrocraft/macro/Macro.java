@@ -184,6 +184,7 @@ public class Macro {
         @Override
         public void run() {
             macro.endMacro();
+            macro.playMacro();
         }
     }
 
