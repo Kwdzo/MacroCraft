@@ -193,11 +193,13 @@ public class Macro {
                 Scheduling.schedule(new ScheduleAction() {
                     @Override
                     public int getWaitTime() {
-                        return 120;
+                        return 20;
                     }
         
                     @Override
                     public void run() {
+                        
+                        MacroCraft.LOGGER.info("Macro recording stopped, captured " + LOADED_MACRO.actions.size() + " actions in " + ticksElapsed + " ticks.");
                         macro.repetitionsDone++;
                         macro.playMacro();
                     }
