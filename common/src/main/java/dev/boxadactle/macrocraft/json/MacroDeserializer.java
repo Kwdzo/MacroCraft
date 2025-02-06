@@ -44,8 +44,11 @@ public class MacroDeserializer implements JsonDeserializer<Macro> {
             }
 
             int duration = macro.get("duration").getAsInt();
+            int repetitions = macro.get("repetitions").getAsInt();
 
-            return new Macro(duration, parsed);
+            Macro macro = new Macro(duration, parsed);
+            macro.repetitions = repetitions;
+            return macro;
         }
 
         throw new JsonParseException("Expected a JSON object");
