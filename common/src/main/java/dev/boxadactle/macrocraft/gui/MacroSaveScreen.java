@@ -16,6 +16,7 @@ import net.minecraft.network.chat.Component;
 
 public class MacroSaveScreen extends BOptionScreen {
     String fileName;
+    int repetitions;
     BCustomButton saveButton;
 
     public MacroSaveScreen(Screen parent) {
@@ -56,6 +57,7 @@ public class MacroSaveScreen extends BOptionScreen {
                                 Component.translatable("screen.macrocraft.overwrite.title", file),
                                 Component.translatable("screen.macrocraft.overwrite.description", file),
                                 () -> {
+                                    MacroState.LOADED_MACRO.repetitions = repetitions;
                                     MacroFile.deleteMacroFile(fileName);
                                     MacroFile.saveMacro(fileName, MacroState.LOADED_MACRO);
                                     ClientUtils.setScreen(parent);
@@ -64,6 +66,7 @@ public class MacroSaveScreen extends BOptionScreen {
                         );
                     }
 
+                    MacroState.LOADED_MACRO.repetitions = repetitions;
                     MacroFile.saveMacro(fileName, MacroState.LOADED_MACRO);
                     MacroState.loadMacro(MacroState.LOADED_MACRO, fileName);
 
@@ -77,6 +80,16 @@ public class MacroSaveScreen extends BOptionScreen {
                         saveButton.active = !f.isEmpty();
                     }),
                     new BLabel(Component.literal(MacroFile.MACRO_EXTENSION))
+            );
+
+            addConfigLine(
+                    new BIntegerField(0, (i) -> {
+                        if(repetitions == i)
+                            return;
+                        MacroState.HAS_UNSAVED_CHANGES = true;
+                        repetitions = i;
+                    }),
+                    new BLabel(Component.literal(" Repetitons"))
             );
 
             addConfigLine(saveButton);
