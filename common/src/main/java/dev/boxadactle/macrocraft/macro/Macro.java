@@ -187,9 +187,10 @@ public class Macro {
             macro.endMacro();
             Timer timer = new Timer("LoopMethod");
             timer.schedule(new TimerTask() {
-public void run() {
-    macro.playMacro();
-}, 200);
+                public void run() {
+                    macro.playMacro();
+                }
+            }, 200);
         }
     }
 
