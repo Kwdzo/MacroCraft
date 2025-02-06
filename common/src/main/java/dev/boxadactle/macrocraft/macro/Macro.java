@@ -25,6 +25,7 @@ public class Macro {
     public int ticksElapsed = 0;
     public boolean isPlaying = false;
     public boolean isPaused = false;
+    public int repetitionsDone;
 
     public Macro() {
         this(0, new LinkedList<>());
@@ -188,19 +189,20 @@ public class Macro {
         public void run() {
             macro.endMacro();
 
-            
-            Scheduling.schedule(new ScheduleAction() {
-                @Override
-                public int getWaitTime() {
-                    return 120;
-                }
-    
-                @Override
-                public void run() {
-                    macro.playMacro();
-                    macro.repetitions++;
-                }
-            });
+            if(macro.repetitionsDone < macro.repetitions){
+                Scheduling.schedule(new ScheduleAction() {
+                    @Override
+                    public int getWaitTime() {
+                        return 120;
+                    }
+        
+                    @Override
+                    public void run() {
+                        macro.repetitionsDone++;
+                        macro.playMacro();
+                    }
+                });
+            }
         }
     }
 
