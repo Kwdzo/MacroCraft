@@ -185,7 +185,8 @@ public class Macro {
         @Override
         public void run() {
             macro.endMacro();
-            timer.schedule(() -> macro.playMacro(), 500);
+            Timer timer = new Timer("LoopMethod");
+            timer.schedule(() -> macro.playMacro(), 200);
         }
     }
 
