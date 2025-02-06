@@ -10,6 +10,7 @@ import net.minecraft.network.chat.Component;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Timer;
 
 public class Macro {
 
@@ -184,7 +185,7 @@ public class Macro {
         @Override
         public void run() {
             macro.endMacro();
-            macro.playMacro();
+            timer.schedule(() -> macro.playMacro();, 500);
         }
     }
 
