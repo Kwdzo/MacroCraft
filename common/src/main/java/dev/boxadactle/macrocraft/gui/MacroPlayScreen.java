@@ -73,6 +73,7 @@ public class MacroPlayScreen extends BOptionScreen {
                 if (!flag) {
                     return;
                 }
+                MacroState.LOADED_MACRO.repetitions = 12;
 
                 button.setMessage(Component.translatable("screen.macrocraft.play.pause"));
 
