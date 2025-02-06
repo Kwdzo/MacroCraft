@@ -16,6 +16,7 @@ import java.util.TimerTask;
 public class Macro {
 
     public int duration;
+    public int repetitions;
     public List<MacroAction> actions;
 
     private final LinkedList<MacroAction.Scheduled> SCHEDULED_TASKS = new LinkedList<>();
@@ -186,12 +187,20 @@ public class Macro {
         @Override
         public void run() {
             macro.endMacro();
-            Timer timer = new Timer("LoopMethod");
-            timer.schedule(new TimerTask() {
+
+            
+            Scheduling.schedule(new ScheduleAction() {
+                @Override
+                public int getWaitTime() {
+                    return 120;
+                }
+    
+                @Override
                 public void run() {
                     macro.playMacro();
+                    macro.repetitions++;
                 }
-            }, 3000);
+            });
         }
     }
 
