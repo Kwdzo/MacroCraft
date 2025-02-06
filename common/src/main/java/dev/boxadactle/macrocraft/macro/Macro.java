@@ -198,8 +198,6 @@ public class Macro {
         
                     @Override
                     public void run() {
-                        
-                        MacroCraft.LOGGER.info("Macro recording stopped, captured " + LOADED_MACRO.actions.size() + " actions in " + ticksElapsed + " ticks.");
                         macro.repetitionsDone++;
                         macro.playMacro();
                     }
