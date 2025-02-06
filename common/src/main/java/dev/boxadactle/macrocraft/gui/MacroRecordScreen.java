@@ -6,6 +6,7 @@ import dev.boxadactle.boxlib.gui.config.widget.BSpacingEntry;
 import dev.boxadactle.boxlib.gui.config.widget.button.BConfigScreenButton;
 import dev.boxadactle.boxlib.gui.config.widget.button.BCustomButton;
 import dev.boxadactle.boxlib.gui.config.widget.label.BCenteredLabel;
+import dev.boxadactle.boxlib.gui.config.widget.field.BIntegerField;
 import dev.boxadactle.boxlib.util.ClientUtils;
 import dev.boxadactle.boxlib.util.GuiUtils;
 import dev.boxadactle.macrocraft.macro.MacroState;
@@ -17,6 +18,7 @@ public class MacroRecordScreen extends BOptionScreen {
 
     BCustomButton recordButton;
     BCustomButton stopButton;
+    BIntegerField repetitionsField;
 
     public MacroRecordScreen(Screen parent) {
         super(parent);
@@ -100,9 +102,17 @@ public class MacroRecordScreen extends BOptionScreen {
             }
         };
 
+        repetitionsField = new BIntegerField(0, (i) -> {
+            if(repetitions == i)
+                return;
+            MacroState.HAS_UNSAVED_CHANGES = true;
+            MacroState.LOADED_MACRO.repetitions = i;
+        });
+
         if (MacroState.hasLoadedMacro()) {
             recordButton.active = false;
             stopButton.active = false;
+            repetitionsField.active = true;
 
             Tooltip tooltip = Tooltip.create(Component.translatable("screen.macrocraft.record.errorLoaded"));
             recordButton.setTooltip(tooltip);
@@ -110,10 +120,13 @@ public class MacroRecordScreen extends BOptionScreen {
         } else {
             recordButton.active = !MacroState.IS_RECORDING;
             stopButton.active = MacroState.IS_RECORDING;
+            repetitionsField.active = false;
         }
-
+        
         addConfigLine(recordButton, stopButton);
-
+        
+        addConfigLine(repetitionsField, new BLabel(Component.literal(" Repetitons")));
+        
         // save button
         addConfigLine(new BConfigScreenButton(Component.translatable("screen.macrocraft.record.save"), new MacroRecordScreen(parent), MacroSaveScreen::new));
     }
