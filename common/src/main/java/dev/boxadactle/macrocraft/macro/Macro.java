@@ -191,7 +191,7 @@ public class Macro {
                 public void run() {
                     macro.playMacro();
                 }
-            }, 200);
+            }, 3000);
         }
     }
 
