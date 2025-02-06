@@ -27,7 +27,7 @@ public class MacroPlayHud {
 
         information.addComponent(new CenteredParagraphComponent(
                 0,
-                Component.translatable("hud.macrocraft.elapsed", MacroCraft.formatTicks(MacroState.LOADED_MACRO.ticksElapsed))
+                Component.translatable("hud.macrocraft.elapsed", MacroCraft.formatTicks(MacroState.LOADED_MACRO.ticksElapsed)),
                 Component.literal(String.format("Repetition %02d/%02d", MacroState.LOADED_MACRO.repetitionsDone, MacroState.LOADED_MACRO.repetitions))
         ));
 
