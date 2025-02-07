@@ -8,6 +8,7 @@ import dev.boxadactle.boxlib.util.WorldUtils;
 import dev.boxadactle.macrocraft.MacroCraft;
 import net.minecraft.network.chat.Component;
 import dev.boxadactle.boxlib.util.WorldUtils;
+import dev.boxadactle.macrocraft.listeners.EntityInvoker;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -93,7 +94,7 @@ public class Macro {
         if(MacroCraft.CONFIG.get().shouldSyncViewDirection) {
             var player = WorldUtils.getPlayer();
             player.setYHeadRot(startingYRot);
-            player.setXRot(startingXRot);
+            ((EntityInvoker)player).invokeSetRot(startingYRot, startingXRot);
         }
 
         return true;
