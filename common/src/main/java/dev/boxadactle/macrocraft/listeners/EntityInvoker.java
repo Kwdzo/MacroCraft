@@ -9,5 +9,5 @@ import net.minecraft.world.entity.Entity;
 @Mixin(Entity.class)
 public interface EntityInvoker {
   @Invoker("setRot")
-  public boolean invokeSetRot(float x, float y);
+  public void invokeSetRot(float x, float y);
 }
