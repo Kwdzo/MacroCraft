@@ -5,6 +5,7 @@ import dev.boxadactle.boxlib.gui.config.BOptionScreen;
 import dev.boxadactle.boxlib.gui.config.widget.BSpacingEntry;
 import dev.boxadactle.boxlib.gui.config.widget.button.BConfigScreenButton;
 import dev.boxadactle.boxlib.gui.config.widget.button.BCustomButton;
+import dev.boxadactle.boxlib.gui.config.widget.button.BBooleanButton;
 import dev.boxadactle.boxlib.gui.config.widget.label.BCenteredLabel;
 import dev.boxadactle.boxlib.util.ClientUtils;
 import dev.boxadactle.macrocraft.macro.MacroState;
@@ -39,6 +40,15 @@ public class MacroPlayScreen extends BOptionScreen {
 
         // load different macro
         addConfigLine(new BConfigScreenButton(Component.translatable("screen.macrocraft.play.loadDifferent"), new MacroPlayScreen(parent), MacroListScreen::new));
+        
+
+        BBooleanButton g = new BBooleanButton(
+                "screen.macrocraft.play.shouldSyncViewDirection",
+                MacroCraft.CONFIG.get().shouldSyncViewDirection,
+                (value) -> MacroCraft.CONFIG.get().shouldSyncViewDirection = value
+        );
+        g.setTooltip(Tooltip.create(Component.literal("Sync View Direction When the macro starts/loops to account to negate any drift")));
+        addConfigLine(g);
 
         addConfigLine(new BSpacingEntry());
 
