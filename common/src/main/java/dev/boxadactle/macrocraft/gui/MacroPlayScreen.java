@@ -11,6 +11,7 @@ import dev.boxadactle.boxlib.util.ClientUtils;
 import dev.boxadactle.boxlib.util.WorldUtils;
 import dev.boxadactle.macrocraft.MacroCraft;
 import dev.boxadactle.macrocraft.macro.MacroState;
+import dev.boxadactle.macrocraft.listeners.EntityInvoker;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
