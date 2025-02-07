@@ -103,7 +103,7 @@ public class MacroRecordScreen extends BOptionScreen {
             }
         };
 
-        repetitionsField = new BIntegerField(0, (i) -> {
+        repetitionsField = new BIntegerField(MacroState.LOADED_MACRO?.repetitions ?? 0, (i) -> {
             if(MacroState.LOADED_MACRO.repetitions == i)
                 return;
             MacroState.HAS_UNSAVED_CHANGES = true;
