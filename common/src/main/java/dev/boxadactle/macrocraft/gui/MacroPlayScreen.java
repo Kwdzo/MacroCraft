@@ -46,9 +46,12 @@ public class MacroPlayScreen extends BOptionScreen {
         
 
         BBooleanButton syncViewButton = new BBooleanButton(
-                "screen.macrocraft.play.shouldSyncViewDirection",
+                "Should Sync View Direction",
                 MacroCraft.CONFIG.get().shouldSyncViewDirection,
-                (value) -> MacroCraft.CONFIG.get().shouldSyncViewDirection = value
+                (value) -> {
+                    MacroCraft.CONFIG.get().shouldSyncViewDirection = value;
+                    MacroCraft.CONFIG.save();
+                }
         );
         BCustomButton previewButton = new BCustomButton(Component.literal("Preview Direction")) {
                     @Override
