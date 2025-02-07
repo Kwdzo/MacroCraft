@@ -28,7 +28,7 @@ public class MacroSerializer implements JsonSerializer<Macro> {
         object.addProperty("duration", macro.duration);
         object.addProperty("repetitions", macro.repetitions);
         object.addProperty("startingXRot", macro.startingXRot);
-        object.addProperty("startingXRot", macro.startingXRot);
+        object.addProperty("startingYRot", macro.startingYRot);
         object.add("actions", array);
 
         return object;
