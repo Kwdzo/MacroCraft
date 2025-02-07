@@ -6,6 +6,7 @@ import dev.boxadactle.boxlib.gui.config.widget.BSpacingEntry;
 import dev.boxadactle.boxlib.gui.config.widget.button.BConfigScreenButton;
 import dev.boxadactle.boxlib.gui.config.widget.button.BCustomButton;
 import dev.boxadactle.boxlib.gui.config.widget.label.BCenteredLabel;
+import dev.boxadactle.boxlib.gui.config.widget.label.BLabel;
 import dev.boxadactle.boxlib.gui.config.widget.field.BIntegerField;
 import dev.boxadactle.boxlib.util.ClientUtils;
 import dev.boxadactle.boxlib.util.GuiUtils;
@@ -103,7 +104,7 @@ public class MacroRecordScreen extends BOptionScreen {
         };
 
         repetitionsField = new BIntegerField(0, (i) -> {
-            if(repetitions == i)
+            if(MacroState.LOADED_MACRO.repetitions == i)
                 return;
             MacroState.HAS_UNSAVED_CHANGES = true;
             MacroState.LOADED_MACRO.repetitions = i;
