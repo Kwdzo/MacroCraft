@@ -66,7 +66,7 @@ public class MacroPlayScreen extends BOptionScreen {
                             method.setAccessible(true);
                             method.invoke(player, MacroState.LOADED_MACRO.startingYRot, MacroState.LOADED_MACRO.startingXRot);
                         } catch(Exception e) {
-                            throw e;
+                            MacroCraft.LOGGER.info("Failed to Call SetRot: " + e.getMessage());
                         }
                         //player.setRot(MacroState.LOADED_MACRO.startingYRot, MacroState.LOADED_MACRO.startingXRot);
                     }
