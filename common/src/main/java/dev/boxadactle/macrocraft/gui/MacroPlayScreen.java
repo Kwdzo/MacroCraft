@@ -8,9 +8,11 @@ import dev.boxadactle.boxlib.gui.config.widget.button.BCustomButton;
 import dev.boxadactle.boxlib.gui.config.widget.button.BBooleanButton;
 import dev.boxadactle.boxlib.gui.config.widget.label.BCenteredLabel;
 import dev.boxadactle.boxlib.util.ClientUtils;
+import dev.boxadactle.boxlib.util.WorldUtils;
 import dev.boxadactle.macrocraft.MacroCraft;
 import dev.boxadactle.macrocraft.macro.MacroState;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 
 public class MacroPlayScreen extends BOptionScreen {
@@ -48,7 +50,7 @@ public class MacroPlayScreen extends BOptionScreen {
                 MacroCraft.CONFIG.get().shouldSyncViewDirection,
                 (value) -> MacroCraft.CONFIG.get().shouldSyncViewDirection = value
         );
-        BCustomButton previewButton = new BCustomButton("Preview Direction") {
+        BCustomButton previewButton = new BCustomButton(Component.literal("Preview Direction")) {
                     @Override
                     protected void buttonClicked(BOptionButton<?> button) {
                         var player = WorldUtils.getPlayer();
