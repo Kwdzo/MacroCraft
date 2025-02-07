@@ -44,13 +44,23 @@ public class MacroDeserializer implements JsonDeserializer<Macro> {
             }
 
             int repetitions = 0;
+            float startingXRot = 0;
+            float startingYRot = 0;
             int duration = macro.get("duration").getAsInt();
             if(macro.has("repetitions")) {
                 repetitions = macro.get("repetitions").getAsInt();
             }
+            if(macro.has("startingXRot")) {
+                startingXRot = macro.get("startingXRot").getAsInt();
+            }
+            if(macro.has("startingYRot")) {
+                startingYRot = macro.get("startingYRot").getAsInt();
+            }
 
             Macro mmacro = new Macro(duration, parsed);
             mmacro.repetitions = repetitions;
+            mmacro.startingXRot = startingXRot;
+            mmacro.startingYRot = startingYRot;
             return mmacro;
         }
 
