@@ -59,7 +59,7 @@ public class MacroPlayScreen extends BOptionScreen {
                     protected void buttonClicked(BOptionButton<?> button) {
                         var player = WorldUtils.getPlayer();
                         player.setYHeadRot(MacroState.LOADED_MACRO.startingYRot);
-                        player.setYaw(MacroState.LOADED_MACRO.startingXRot);
+                        player.setRot(MacroState.LOADED_MACRO.startingYRot, MacroState.LOADED_MACRO.startingXRot);
                     }
                 };
         if(!MacroState.hasLoadedMacro()){
