@@ -8,6 +8,7 @@ import dev.boxadactle.boxlib.gui.config.widget.button.BCustomButton;
 import dev.boxadactle.boxlib.gui.config.widget.button.BBooleanButton;
 import dev.boxadactle.boxlib.gui.config.widget.label.BCenteredLabel;
 import dev.boxadactle.boxlib.util.ClientUtils;
+import dev.boxadactle.macrocraft.MacroCraft;
 import dev.boxadactle.macrocraft.macro.MacroState;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
