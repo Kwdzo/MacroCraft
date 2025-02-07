@@ -7,7 +7,7 @@ import dev.boxadactle.boxlib.util.MouseUtils;
 import dev.boxadactle.boxlib.util.WorldUtils;
 import dev.boxadactle.macrocraft.MacroCraft;
 import net.minecraft.network.chat.Component;
-import dev.boxadactle.boxlib.util.WorldUtils;l
+import dev.boxadactle.boxlib.util.WorldUtils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -91,8 +91,9 @@ public class Macro {
         Scheduling.schedule(finishScheduler);
 
         if(startingXRot != 0 || startingYRot) {
-            WorldUtils.getPlayer().setRot(startingXRot, startingYRot);
-            // set rotation
+            var player = WorldUtils.getPlayer();
+            player.setYHeadRot(startingYRot);
+            player.setXRot(startingXRot);
         }
 
         return true;
