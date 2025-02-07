@@ -13,8 +13,8 @@ import dev.boxadactle.macrocraft.MacroCraft;
 import dev.boxadactle.macrocraft.macro.MacroState;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.components.Tooltip;
-import net.minecraft.network.chat.Component;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.network.chat.Component
+import net.minecraft.client.Minecraft;
 
 public class MacroPlayScreen extends BOptionScreen {
 
@@ -58,9 +58,8 @@ public class MacroPlayScreen extends BOptionScreen {
                     @Override
                     protected void buttonClicked(BOptionButton<?> button) {
                         var player = WorldUtils.getPlayer();
-                        MinecraftClient.getInstance().player.setYaw(MacroState.LOADED_MACRO.startingXRot);
                         player.setYHeadRot(MacroState.LOADED_MACRO.startingYRot);
-                        //player.setXRot(MacroState.LOADED_MACRO.startingXRot);
+                        player.setYaw(MacroState.LOADED_MACRO.startingXRot);
                     }
                 };
         if(!MacroState.hasLoadedMacro()){
