@@ -32,9 +32,3 @@ jobs:
       with:
         name: fabric-build
         path: fabric/build/libs
-        
-    - name: Upload neoforge
-      uses: actions/upload-artifact@v4
-      with:
-        name: neoforge-build
-        path: neoforge/build/libs
