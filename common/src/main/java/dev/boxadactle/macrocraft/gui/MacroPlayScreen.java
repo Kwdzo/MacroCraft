@@ -42,13 +42,34 @@ public class MacroPlayScreen extends BOptionScreen {
         addConfigLine(new BConfigScreenButton(Component.translatable("screen.macrocraft.play.loadDifferent"), new MacroPlayScreen(parent), MacroListScreen::new));
         
 
-        BBooleanButton g = new BBooleanButton(
+        BBooleanButton syncViewButton = new BBooleanButton(
                 "screen.macrocraft.play.shouldSyncViewDirection",
                 MacroCraft.CONFIG.get().shouldSyncViewDirection,
                 (value) -> MacroCraft.CONFIG.get().shouldSyncViewDirection = value
         );
-        g.setTooltip(Tooltip.create(Component.literal("Sync View Direction When the macro starts/loops to account to negate any drift")));
-        addConfigLine(g);
+        BCustomButton previewButton = new BCustomButton("Preview Direction") {
+                    @Override
+                    protected void buttonClicked(BOptionButton<?> button) {
+                        var player = WorldUtils.getPlayer();
+                        player.setYHeadRot(MacroState.LOADED_MACRO.startingYRot);
+                        player.setXRot(MacroState.LOADED_MACRO.startingXRot);
+                    }
+                };
+        if(!MacroState.hasLoadedMacro()){
+            previewButton.active = false;
+            previewButton.setTooltip(Tooltip.create(Component.literal("No macro loaded")));
+        }
+        else if((MacroState.LOADED_MACRO.startingXRot == 0) && (MacroState.LOADED_MACRO.startingYRot == 0)){
+            previewButton.active = false;
+            previewButton.setTooltip(Tooltip.create(Component.literal("Macro has no X and Y rotation saved")));
+        }
+        else {
+            previewButton.active = true;
+            previewButton.setTooltip(Tooltip.create(Component.literal("Applies the starting rotation without playing the macro")));
+        }
+
+        
+        addConfigLine(syncViewButton, previewButton);
 
         addConfigLine(new BSpacingEntry());
 
