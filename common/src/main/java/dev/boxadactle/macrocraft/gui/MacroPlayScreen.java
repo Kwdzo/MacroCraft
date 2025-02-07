@@ -15,6 +15,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.Entity;
 
 public class MacroPlayScreen extends BOptionScreen {
 
