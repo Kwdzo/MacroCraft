@@ -16,4 +16,6 @@ public class MacroCraftConfig implements BConfig {
 
     public boolean shouldRenderHud = true;
 
+    public boolean shouldSyncViewDirection = true;
+
 }
