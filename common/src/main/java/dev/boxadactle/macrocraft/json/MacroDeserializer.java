@@ -51,10 +51,10 @@ public class MacroDeserializer implements JsonDeserializer<Macro> {
                 repetitions = macro.get("repetitions").getAsInt();
             }
             if(macro.has("startingXRot")) {
-                startingXRot = macro.get("startingXRot").getAsInt();
+                startingXRot = macro.get("startingXRot").getAsFloat();
             }
             if(macro.has("startingYRot")) {
-                startingYRot = macro.get("startingYRot").getAsInt();
+                startingYRot = macro.get("startingYRot").getAsFloat();
             }
 
             Macro mmacro = new Macro(duration, parsed);
