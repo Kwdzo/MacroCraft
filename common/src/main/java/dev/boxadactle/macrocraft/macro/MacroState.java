@@ -7,6 +7,8 @@ import dev.boxadactle.macrocraft.MacroCraft;
 import dev.boxadactle.macrocraft.fs.MacroFile;
 import net.minecraft.client.gui.screens.ChatScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 
 public class MacroState {
 
@@ -59,6 +61,9 @@ public class MacroState {
         IS_RECORDING = true;
         IS_PAUSED = false;
         ticksElapsed = 0;
+        var player = WorldUtils.getPlayer();
+        LOADED_MACRO.startingXRot = player.getXRot();
+        LOADED_MACRO.startingYRot = player.getYHeadRot();
 
         MacroCraft.LOGGER.info("Macro recording started, now capturing actions...");
 
