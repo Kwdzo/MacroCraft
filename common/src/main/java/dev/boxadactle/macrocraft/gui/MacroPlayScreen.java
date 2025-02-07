@@ -110,6 +110,7 @@ public class MacroPlayScreen extends BOptionScreen {
         @Override
         protected void buttonClicked(BOptionButton<?> button) {
             if (!isPlaying) {
+                MacroState.LOADED_MACRO.repetitionsDone = 0;
                 boolean flag = MacroState.LOADED_MACRO.playMacro();
 
                 if (!flag) {
