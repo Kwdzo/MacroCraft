@@ -44,6 +44,8 @@ public class MacroSaveScreen extends BOptionScreen {
 
         addConfigLine(new BSpacingEntry());
 
+        repetitions = MacroState.LOADED_MACRO.repetitions;
+        
         if (MacroState.HAS_UNSAVED_CHANGES) {
             saveButton = new BCustomButton(Component.translatable("screen.macrocraft.save.save")) {
                 @Override
@@ -84,7 +86,7 @@ public class MacroSaveScreen extends BOptionScreen {
             );
 
             addConfigLine(
-                    new BIntegerField(0, (i) -> {
+                    new BIntegerField(repetitions, (i) -> {
                         if(repetitions == i)
                             return;
                         MacroState.HAS_UNSAVED_CHANGES = true;
