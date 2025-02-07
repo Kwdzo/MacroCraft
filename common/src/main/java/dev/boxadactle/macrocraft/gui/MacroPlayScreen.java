@@ -16,6 +16,7 @@ import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
+import java.lang.reflect.Method;
 
 public class MacroPlayScreen extends BOptionScreen {
 
@@ -62,7 +63,7 @@ public class MacroPlayScreen extends BOptionScreen {
                         player.setYHeadRot(MacroState.LOADED_MACRO.startingYRot);
                         Method method = Entity.class.getDeclaredMethod("setRot");
                         method.setAccessible(true);
-                        Object r = method.invoke(player, MacroState.LOADED_MACRO.startingYRot, MacroState.LOADED_MACRO.startingXRot);
+                        method.invoke(player, MacroState.LOADED_MACRO.startingYRot, MacroState.LOADED_MACRO.startingXRot);
                         //player.setRot(MacroState.LOADED_MACRO.startingYRot, MacroState.LOADED_MACRO.startingXRot);
                     }
                 };
