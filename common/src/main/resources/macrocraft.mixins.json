@@ -10,7 +10,8 @@
     "MinecraftMixin",
     "MouseInvoker",
     "MouseListener",
-    "PauseScreenMixin"
+    "PauseScreenMixin",
+    "SetRotMixin",
   ],
   "injectors": {
     "defaultRequire": 1
