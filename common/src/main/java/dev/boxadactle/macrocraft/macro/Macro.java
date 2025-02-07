@@ -90,7 +90,7 @@ public class Macro {
 
         Scheduling.schedule(finishScheduler);
 
-        if(startingXRot != 0 || startingYRot) {
+        if(MacroCraft.CONFIG.get().shouldSyncViewDirection) {
             var player = WorldUtils.getPlayer();
             player.setYHeadRot(startingYRot);
             player.setXRot(startingXRot);
