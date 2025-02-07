@@ -11,7 +11,7 @@
     "MouseInvoker",
     "MouseListener",
     "PauseScreenMixin",
-    "SetRotMixin",
+    "EntityInvoker",
   ],
   "injectors": {
     "defaultRequire": 1
