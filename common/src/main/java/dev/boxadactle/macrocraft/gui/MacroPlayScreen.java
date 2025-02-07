@@ -57,6 +57,7 @@ public class MacroPlayScreen extends BOptionScreen {
                     @Override
                     protected void buttonClicked(BOptionButton<?> button) {
                         var player = WorldUtils.getPlayer();
+                        MacroCraft.LOGGER.info("Setting Player Viewing Y To " + MacroState.LOADED_MACRO.startingYRot + " and X to " + MacroState.LOADED_MACRO.startingXRot + ".");
                         player.setYHeadRot(MacroState.LOADED_MACRO.startingYRot);
                         player.setXRot(MacroState.LOADED_MACRO.startingXRot);
                     }
