@@ -76,8 +76,16 @@ public class MacroCraftConfigScreen extends BOptionScreen {
                 MacroCraft.CONFIG.get().shouldRenderHud,
                 (value) -> MacroCraft.CONFIG.get().shouldRenderHud = value
         );
-        e.setTooltip(Tooltip.create(Component.translatable("screen.macrocraft.config.shouldRenderHud.description")));
+        f.setTooltip(Tooltip.create(Component.translatable("screen.macrocraft.config.shouldRenderHud.description")));
         addConfigLine(f);
+
+        BBooleanButton g = new BBooleanButton(
+                "screen.macrocraft.config.shouldSyncViewDirection",
+                MacroCraft.CONFIG.get().shouldSyncViewDirection,
+                (value) -> MacroCraft.CONFIG.get().shouldSyncViewDirection = value
+        );
+        g.setTooltip(Tooltip.create(Component.literal("Sync View Direction When the macro starts/loops to account to negate any drift")));
+        addConfigLine(g);
 
         addConfigLine(new BSpacingEntry());
 
