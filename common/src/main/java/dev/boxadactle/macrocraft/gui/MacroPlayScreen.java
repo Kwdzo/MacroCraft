@@ -14,6 +14,7 @@ import dev.boxadactle.macrocraft.macro.MacroState;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
+import net.minecraft.client.MinecraftClient;
 
 public class MacroPlayScreen extends BOptionScreen {
 
@@ -57,9 +58,9 @@ public class MacroPlayScreen extends BOptionScreen {
                     @Override
                     protected void buttonClicked(BOptionButton<?> button) {
                         var player = WorldUtils.getPlayer();
-                        MacroCraft.LOGGER.info("Setting Player Viewing Y To " + MacroState.LOADED_MACRO.startingYRot + " and X to " + MacroState.LOADED_MACRO.startingXRot + ".");
+                        MinecraftClient.getInstance().player.setYaw(MacroState.LOADED_MACRO.startingXRot);
                         player.setYHeadRot(MacroState.LOADED_MACRO.startingYRot);
-                        player.setXRot(MacroState.LOADED_MACRO.startingXRot);
+                        //player.setXRot(MacroState.LOADED_MACRO.startingXRot);
                     }
                 };
         if(!MacroState.hasLoadedMacro()){
