@@ -7,6 +7,7 @@ import dev.boxadactle.boxlib.util.MouseUtils;
 import dev.boxadactle.boxlib.util.WorldUtils;
 import dev.boxadactle.macrocraft.MacroCraft;
 import net.minecraft.network.chat.Component;
+import dev.boxadactle.boxlib.util.WorldUtils;l
 
 import java.util.LinkedList;
 import java.util.List;
@@ -26,6 +27,9 @@ public class Macro {
     public boolean isPlaying = false;
     public boolean isPaused = false;
     public int repetitionsDone;
+
+    public float startingXRot;
+    public float startingYRot;
 
     public Macro() {
         this(0, new LinkedList<>());
@@ -85,6 +89,11 @@ public class Macro {
         finishScheduler = new MacroFinishScheduler(this, duration);
 
         Scheduling.schedule(finishScheduler);
+
+        if(startingXRot != 0 || startingYRot) {
+            WorldUtils.getPlayer().setRot(startingXRot, startingYRot);
+            // set rotation
+        }
 
         return true;
     }
